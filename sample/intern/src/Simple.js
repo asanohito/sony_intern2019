@@ -314,7 +314,7 @@ Simple.prototype.loadBytes = function(path , callback)
             callback( request.response );
             break;
         default:
-            Simple.myerror( "Failed to load (" + request.status + ") : " + path );
+            // Simple.myerror( "Failed to load (" + request.status + ") : " + path );
             break;
         }
     }
