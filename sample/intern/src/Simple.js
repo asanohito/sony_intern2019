@@ -199,7 +199,7 @@ Simple.draw = function (gl/*WebGLコンテキスト*/) {
   live2DModel.setParamFloat("PARAM_MOUTH_OPEN_Y", 0.5 + 0.5 * Math.sin( t/3.2345 ));
   live2DModel.setParamFloat("PARAM_EYE_BALL_X", 1.0 * Math.sin(t / cycle));
   live2DModel.setParamFloat("PARAM_EYE_BALL_Y", 1.0 * Math.sin(t / cycle));
-  if(t%(3*PI)==0){
+  if(t%(3*Math.PI)==0){
     live2DModel.setParamFloat("PARAM_EYE_R_OPEN", 0);
     live2DModel.setParamFloat("PARAM_EYE_L_OPEN", 0);
     console.log(000);
