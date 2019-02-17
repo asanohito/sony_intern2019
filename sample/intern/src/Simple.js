@@ -19,11 +19,7 @@ var MODEL_DEFINE = {
     ],
 };
 
-// JavaScriptで発生したエラーを取得
-window.onerror = function(msg, url, line, col, error) {
-    var errmsg = "file:" + url + "<br>line:" + line + " " + msg;
-    Simple.myerror(errmsg);
-}
+
 
 window.onload = function(){
     var glCanvas = new Simple();
@@ -63,7 +59,7 @@ var Simple = function() {
     this.canvas.height = this.canvas.width = CAN_SIZE;
     // コンテキストを失ったとき
     this.canvas.addEventListener("webglcontextlost", function(e) {
-        this.myerror("context lost");
+        // this.myerror("context lost");
         loadLive2DCompleted = false;
         initLive2DCompleted = false;
 
@@ -77,7 +73,7 @@ var Simple = function() {
 
     // コンテキストが復元されたとき
     this.canvas.addEventListener("webglcontextrestored" , function(e){
-        this.myerror("webglcontext restored");
+        // this.myerror("webglcontext restored");
         this.initLoop(canvas);
     }, false);
 
@@ -139,7 +135,7 @@ Simple.prototype.initLoop = function(canvas/*HTML5 canvasオブジェクト*/)
     };
     var gl = this.getWebGLContext(canvas, para);
     if (!gl) {
-        this.myerror("Failed to create WebGL context.");
+        // this.myerror("Failed to create WebGL context.");
         return;
     }
 
@@ -166,7 +162,7 @@ Simple.prototype.initLoop = function(canvas/*HTML5 canvasオブジェクト*/)
                     }
                 }
                 that.loadedImages[tno].onerror = function() {
-                    that.myerror("Failed to load image : " + that.modelDef.textures[tno]);
+                    // that.myerror("Failed to load image : " + that.modelDef.textures[tno]);
                 }
             })( i );
     }
@@ -335,11 +331,11 @@ Simple.prototype.mylog = function(msg/*string*/)
 /*
 * 画面エラーを出力
 */
-Simple.prototype.myerror = function(msg/*string*/)
-{
-    console.error(msg);
-    that.mylog( "<span style='color:red'>" + msg + "</span>");
-};
+// Simple.prototype.myerror = function(msg/*string*/)
+// {
+//     console.error(msg);
+//     that.mylog( "<span style='color:red'>" + msg + "</span>");
+// };
 
 /*
  * マウスイベント
