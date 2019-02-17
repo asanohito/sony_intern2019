@@ -206,7 +206,7 @@ Simple.draw = function (gl/*WebGLコンテキスト*/) {
   }else{
     live2DModel.setParamFloat("PARAM_EYE_L_OPEN", 1);
     live2DModel.setParamFloat("PARAM_EYE_R_OPEN", 1);
-    console.log(111);
+    console.log(time);
   }
 
   // Live2Dモデルを更新して描画
