@@ -189,8 +189,7 @@ Simple.draw = function (gl/*WebGLコンテキスト*/) {
   // キャラクターのパラメータを適当に更新
   var t = UtSystem.getUserTimeMSec() * 0.001 * 2 * Math.PI; //1秒ごとに2π(1周期)増える
   var cycle = 3.0; //パラメータが一周する時間(秒)
-  var time = 1.0;
-  time++;
+
   // PARAM_ANGLE_Xのパラメータが[cycle]秒ごとに-30から30まで変化する
   // live2DModel.setParamFloat("PARAM_ANGLE_X", 30 * Math.sin(t / cycle));
   // live2DModel.setParamFloat("PARAM_EYE_R_OPEN", 1.0 * Math.sin(t / cycle));
@@ -200,12 +199,14 @@ Simple.draw = function (gl/*WebGLコンテキスト*/) {
   live2DModel.setParamFloat("PARAM_MOUTH_OPEN_Y", 0.5 + 0.5 * Math.sin( t/3.2345 ));
   live2DModel.setParamFloat("PARAM_EYE_BALL_X", 1.0 * Math.sin(t / cycle));
   live2DModel.setParamFloat("PARAM_EYE_BALL_Y", 1.0 * Math.sin(t / cycle));
-  if(time>50){
+  if(t%(3*PI)==0){
     live2DModel.setParamFloat("PARAM_EYE_R_OPEN", 0);
     live2DModel.setParamFloat("PARAM_EYE_L_OPEN", 0);
+    console.log(000);
   }else{
     live2DModel.setParamFloat("PARAM_EYE_L_OPEN", 1);
     live2DModel.setParamFloat("PARAM_EYE_R_OPEN", 1);
+    console.log(111);
   }
 
   // Live2Dモデルを更新して描画
